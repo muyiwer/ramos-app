@@ -1,6 +1,6 @@
 import { Props } from "@/models/props";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, memo, useState, useMemo } from "react";
+import { useEffect, memo, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 const AniminateOnScroll: React.FC<Props.AniminateOnScroll> = ({
@@ -87,7 +87,7 @@ export const Zoom = ({
   const [isVisible, setIsVisible] = useState(false);
   const { ref, inView } = useInView();
 
-  useMemo(() => {
+  useEffect(() => {
     if (inView) {
       setIsVisible(true);
     } else {
@@ -102,6 +102,37 @@ export const Zoom = ({
       initial={{ scale: 0 }}
       animate={isVisible ? { scale: 1 } : "initial"}
       transition={{ duration: 2 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export const PartialZoom = ({
+  className,
+  children,
+}: {
+  children: any;
+  className?: string;
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [inView]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`${className}`}
+      initial={{ scale: 0 }}
+      animate={isVisible ? { scale: 1 } : "initial"}
+      transition={{ duration: 0.5 }}
     >
       {children}
     </motion.div>
