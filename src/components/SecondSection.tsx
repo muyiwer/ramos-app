@@ -6,9 +6,11 @@ import { useInView } from "react-intersection-observer";
 
 export const SecondSection = () => {
   const { ref, inView } = useInView();
-  const value = useAnimatedValue(10,264.2,2000, inView)
-  const { ref: ref2, inView:inView2 } = useInView();
-  const value2 = useAnimatedValue(0,43,2000, inView2)
+  const value = useAnimatedValue(10, 264.2, 2000, inView);
+  const { ref: ref2, inView: inView2 } = useInView();
+  const value2 = useAnimatedValue(0, 43, 2000, inView2);
+  const { ref: ref3, inView: inView3 } = useInView();
+  const value3 = useAnimatedValue(0, 56, 2000, inView3);
   return (
     <div className=" bg-gray-200 rounded-[50px] py-[60px] px-[50px] mx-0 flex flex-col gap-6">
       <div className="grid grid-cols-[1.5fr_1fr] items-center">
@@ -47,7 +49,7 @@ export const SecondSection = () => {
                 }
               />
               <PartialZoom
-              className="w-[80%]"
+                className="w-[80%]"
                 children={
                   <span className=" text-gray-500 text-[12px]">
                     One platform is a comprehensive system of solutions that
@@ -58,7 +60,10 @@ export const SecondSection = () => {
               />
             </div>
           </div>
-          <div ref={ref}  className="border-gray-300 rounded-l-[20px] border-[1px] p-3 grid grid-row-2">
+          <div
+            ref={ref}
+            className="border-gray-300 rounded-l-[20px] border-[1px] p-3 grid grid-row-2"
+          >
             <div className="grid grid-cols-2">
               <div className="flex flex-col gap-6">
                 <span className="text-[13px] font-bold">Sales statistic</span>
@@ -70,15 +75,17 @@ export const SecondSection = () => {
                     <span className="text-gray-500 text-[10px]">
                       Total profit
                     </span>
-                    <span className="font-bold text-[1.2rem]">$ {value.toFixed(2)}k</span>
+                    <span className="font-bold text-[1.2rem]">
+                      $ {value.toFixed(2)}k
+                    </span>
                   </div>
                 </div>
               </div>
               <div className="bg-gray-100 p-4 rounded-xl flex gap-2 flex-col h-[120px]">
                 <span>Visitors</span>
                 <span>_______</span>
-                <div className="flex gap-1 items-start">
-                  <span className="text-[1.5rem]">56K</span>
+                <div ref={ref3} className="flex gap-1 items-start">
+                  <span className="text-[1.5rem]">{value3?.toFixed()}K</span>
                   <div className="flex items-center gap-1">
                     <FaArrowCircleUp className="text-green-500 text-[12px]" />
                     <span className="text-green-600 text-[10px]">+14%</span>
@@ -110,7 +117,10 @@ export const SecondSection = () => {
                 />
               </div>
             </div>
-            <div ref={ref2} className="border-[#292929] relative text-white h-[140px] border-[2px] bg-[#171717] rounded-[25px] flex flex-col gap-5 items-center justify-center">
+            <div
+              ref={ref2}
+              className="border-[#292929] relative text-white h-[140px] border-[2px] bg-[#171717] rounded-[25px] flex flex-col gap-5 items-center justify-center"
+            >
               <span className="text-[11px]">Transactions</span>
               <div className="flex items-center gap-1 absolute left-[125px] top-[45px]">
                 <FaArrowCircleUp className="text-green-500 text-[17px]" />
