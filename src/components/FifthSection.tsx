@@ -1,9 +1,17 @@
 import { LineChartOutlined, ApartmentOutlined } from "@ant-design/icons";
 import logo from "@/assets/red_logo.png";
 import { Button, Divider } from "antd";
-import { Wavy } from "./OnScroll";
+import { PartialZoom, Wavy } from "./OnScroll";
+import { useAnimatedValue } from "@/hooks/useAniminatedValue";
+import { useInView } from "react-intersection-observer";
 
 export const FifthSection = () => {
+  const { ref, inView } = useInView();
+  const value = useAnimatedValue(0, 131.2, 2000, inView);
+  const { ref: ref2, inView: inView2 } = useInView();
+  const value2 = useAnimatedValue(0, 120, 2000, inView2);
+  const { ref: ref3, inView: inView3 } = useInView();
+  const value3 = useAnimatedValue(0, 50, 3000, inView3);
   return (
     <div className="flex flex-col px-[90px] py-[40px] gap-7 mt-[50px]">
       <div>
@@ -24,7 +32,11 @@ export const FifthSection = () => {
                 <div className="w-[20px] h-[20px] -mt-2 z-50 bg-white rounded-full p-2 flex justify-center items-center border-[5px] border-gray-300">
                   <LineChartOutlined className="text-[10px] font-bold" />
                 </div>{" "}
-                <div className="bg-[#ffd027] -ml-3  z-10 p-3 flex justify-center items-center rounded-2xl">
+                <div
+                  style={{ width: value2 }}
+                  ref={ref2}
+                  className={`bg-[#ffd027] -ml-3 p-2 z-10  flex justify-center items-center rounded-2xl`}
+                >
                   <span className="text-[2.5rem] font-bold">2,3%</span>
                 </div>
               </div>
@@ -33,17 +45,29 @@ export const FifthSection = () => {
                 Percentage of website visitors
               </span>
             </div>
-            <div className="flex flex-col -ml-6 mt-8  w-[220px] p-4 shadow-2xl z-50 gap-3  bg-white rounded-2xl  items-start">
+            <div
+              ref={ref}
+              className="flex flex-col -ml-6 mt-8  w-[220px] p-4 shadow-2xl z-50 gap-3  bg-white rounded-2xl  items-start"
+            >
               <span className="font-bold text-[12px] text-gray-400">
                 Sales revenue
               </span>
               <span className="text-[1.5rem] font-bold">
-                <span className="text-[1rem]">$ </span>131.2k
+                <span className="text-[1rem]">$ </span>${value?.toFixed(2)}k
               </span>
-              <div className="flex gap-1">
-                <div className="h-[5px] bg-green-600 w-[50px]"></div>
-                <div className="h-[5px] bg-[#ffd027] w-[50px]"></div>
-                <div className="h-[5px] bg-green-600 w-[50px]"></div>
+              <div ref={ref3} className="flex gap-1">
+                <div
+                  style={{ width: value3 }}
+                  className="h-[5px] bg-green-600 rounded-xl"
+                ></div>
+                <div
+                  style={{ width: value3 }}
+                  className="h-[5px] bg-[#ffd027] rounded-xl"
+                ></div>
+                <div
+                  style={{ width: value3 }}
+                  className="h-[5px] bg-green-600 rounded-xl"
+                ></div>
               </div>
               <div className="flex justify-between items-center w-full">
                 <div className="flex gap-2 items-center mt-2">
@@ -93,38 +117,51 @@ export const FifthSection = () => {
           </span>
         </div>
         <div className="relative flex flex-col gap-7 border-[1px] justify-center items-center rounded-2xl shadow-lg bg-[#f9f9f9] py-6">
-          <div className="absolute top-[50px] border-[1px] shadow-2xl w-[270px] h-[200px] bg-white rounded-2xl"></div>
-          <div className="flex gap-2  p-2 absolute top-[70px] border-[1px] shadow-2xl w-[300px] h-[200px] bg-white rounded-2xl">
-            <div className="bg-gray-200 w-[18px] h-[22px] p-1 rounded-xl flex items-center justify-center">
-              <ApartmentOutlined className="text-[8px]" />
-            </div>
-            <span className="text-[11px] mt-1 font-semibold">
-              Finance reports
-            </span>
-          </div>
-          <div className="p-3 absolute top-[105px] border-[1px] shadow-2xl w-[320px] h-[200px] bg-white rounded-2xl">
-            <div className="flex flex-col justify-between h-[95%]">
-              <div className="flex gap-2">
+          <PartialZoom
+            children={<></>}
+            className="absolute top-[50px] border-[1px] shadow-2xl w-[270px] h-[200px] bg-white rounded-2xl"
+          />
+          <PartialZoom
+            className="flex gap-2  p-2 absolute top-[70px] border-[1px] shadow-2xl w-[300px] h-[200px] bg-white rounded-2xl"
+            children={
+              <>
                 <div className="bg-gray-200 w-[18px] h-[22px] p-1 rounded-xl flex items-center justify-center">
-                  <LineChartOutlined className="text-[10px] font-bold" />
+                  <ApartmentOutlined className="text-[8px]" />
                 </div>
-                <span className="text-[12px] mt-1 font-semibold">Insights</span>
-              </div>
-              <div className="flex justify-between w-full">
-                <div className="flex flex-col gap-2">
-                  <span className="text-gray-400 text-[11px]">
-                    Total profit
+                <span className="text-[11px] mt-1 font-semibold">
+                  Finance reports
+                </span>
+              </>
+            }
+          />
+          <PartialZoom
+            className="p-3 absolute top-[105px] border-[1px] shadow-2xl w-[320px] h-[200px] bg-white rounded-2xl"
+            children={
+              <div className="flex flex-col justify-between h-[95%]">
+                <div className="flex gap-2">
+                  <div className="bg-gray-200 w-[18px] h-[22px] p-1 rounded-xl flex items-center justify-center">
+                    <LineChartOutlined className="text-[10px] font-bold" />
+                  </div>
+                  <span className="text-[12px] mt-1 font-semibold">
+                    Insights
                   </span>
-                  <span className="font-bold">
-                    $ <span className="text-[1.5rem]">264.2k</span>
-                  </span>
-                  <Button className="bg-[#ffd027] text-[9px] font-bold">
-                    Data visualization
-                  </Button>
+                </div>
+                <div className="flex justify-between w-full">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-gray-400 text-[11px]">
+                      Total profit
+                    </span>
+                    <span className="font-bold">
+                      $ <span className="text-[1.5rem]">264.2k</span>
+                    </span>
+                    <Button className="bg-[#ffd027] text-[9px] font-bold">
+                      Data visualization
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            }
+          />
 
           <div className="top-[360px] flex flex-col gap-5 justify-center items-center absolute">
             <span className="text-[1.4rem] font-bold">
