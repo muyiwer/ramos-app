@@ -48,7 +48,7 @@ export const Wavy = ({
   useEffect(() => {
     if (inView && !isVisible) {
       setIsVisible(true);
-    } else {
+    } else if(!inView && isVisible) {
       setIsVisible(false);
     }
   }, [inView]);
@@ -89,7 +89,7 @@ export const TypeAnimination = ({
   useEffect(() => {
     if (inView && !isVisible) {
       setIsVisible(true);
-    } else {
+    } else if(!inView && isVisible) {
       setIsVisible(false);
     }
   }, [inView]);
