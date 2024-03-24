@@ -35,20 +35,6 @@ const AniminateOnScroll: React.FC<Props.AniminateOnScroll> = ({
   );
 };
 
-const charVariants = {
-  initial: {
-    y: 50,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1.5,
-      ease: "easeInOut",
-    },
-  },
-};
 export const Wavy = ({
   text,
   className,
