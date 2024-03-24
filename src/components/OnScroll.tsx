@@ -45,7 +45,7 @@ export const Wavy = ({
   const [isVisible, setIsVisible] = useState(false);
   const { ref, inView } = useInView();
 
-  useMemo(() => {
+  useEffect(() => {
     if (inView) {
       setIsVisible(true);
     } else {
