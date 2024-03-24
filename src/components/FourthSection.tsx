@@ -1,7 +1,7 @@
 import { PlusOutlined } from "@ant-design/icons";
 import mobile from "@/assets/mobile.png";
 import desktop from "@/assets/desktop.png";
-import { PartialZoom, TypeAnimination } from "./OnScroll";
+import { PartialZoom, PartialZoomImage, TypeAnimination } from "./OnScroll";
 
 export const FourthSection = () => {
   return (
@@ -47,11 +47,9 @@ export const FourthSection = () => {
               }
             />
           </div>
-
-          <img
+          <PartialZoomImage
             src={desktop}
-            alt=""
-            className="h-[700px] w-[1400px] -ml-[250px]  z-10"
+            className="h-[700px]  -ml-[250px]  z-10"
           />
         </div>
       </div>

@@ -98,25 +98,32 @@ export const SecondSection = () => {
         </div>
         <div className="h-[310px] grid grid-rows-2 gap-5 bg-[#0d0d0d] rounded-[30px] w-full py-[40px] px-[60px]">
           <div className="grid grid-cols-2 gap-2">
-            <div className="border-[#292929] h-[140px] border-[2px] bg-[#171717] rounded-[25px] flex flex-col gap-6 items-center justify-center">
-              <FaCopy className="text-yellow-300 text-[24px]" />
-              <div className="flex">
-                <img
-                  className="w-9 rounded-full h-9"
-                  src={
-                    "https://t3.ftcdn.net/jpg/03/73/52/24/360_F_373522464_UzkM3IvqgqpS0qIy2kpkB5QiV7Bw7NyS.jpg"
-                  }
-                  alt=""
-                />
-                <img
-                  className="w-9 rounded-full h-9 -ml-1"
-                  src={
-                    "https://www.shutterstock.com/image-photo/portrait-black-african-woman-no-600nw-504712090.jpg"
-                  }
-                  alt=""
-                />
-              </div>
-            </div>
+            <PartialZoom
+              className="border-[#292929] h-[140px] border-[2px] bg-[#171717] rounded-[25px] flex flex-col gap-6 items-center justify-center"
+              children={
+                <>
+                  {" "}
+                  <FaCopy className="text-yellow-300 text-[24px]" />
+                  <div className="flex">
+                    <img
+                      className="w-9 rounded-full h-9"
+                      src={
+                        "https://t3.ftcdn.net/jpg/03/73/52/24/360_F_373522464_UzkM3IvqgqpS0qIy2kpkB5QiV7Bw7NyS.jpg"
+                      }
+                      alt=""
+                    />
+                    <img
+                      className="w-9 rounded-full h-9 -ml-1"
+                      src={
+                        "https://www.shutterstock.com/image-photo/portrait-black-african-woman-no-600nw-504712090.jpg"
+                      }
+                      alt=""
+                    />
+                  </div>
+                </>
+              }
+            />
+
             <div
               ref={ref2}
               className="border-[#292929] relative text-white h-[140px] border-[2px] bg-[#171717] rounded-[25px] flex flex-col gap-5 items-center justify-center"
@@ -129,13 +136,18 @@ export const SecondSection = () => {
               <span className="text-[2.5rem]">{value2?.toFixed()}K</span>
             </div>
           </div>
-          <div className="flex flex-col gap-4 justify-center items-center mt-9">
-            <span className="font-bold text-white">Widget Control</span>
-            <span className="text-white text-[11px] w-[70%] text-center">
-              Reports provide a comprehensive overview of important aspects of
-              wb analytics
-            </span>
-          </div>
+          <PartialZoom
+            className="flex flex-col gap-4 justify-center items-center mt-9"
+            children={
+              <>
+                <span className="font-bold text-white">Widget Control</span>
+                <span className="text-white text-[11px] w-[70%] text-center">
+                  Reports provide a comprehensive overview of important aspects
+                  of wb analytics
+                </span>
+              </>
+            }
+          />
         </div>
       </div>
       <div className="flex justify-center mt-5 gap-6 items-center">

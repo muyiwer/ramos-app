@@ -48,7 +48,7 @@ export const Wavy = ({
   useEffect(() => {
     if (inView && !isVisible) {
       setIsVisible(true);
-    } else if(!inView && isVisible) {
+    } else if (!inView && isVisible) {
       setIsVisible(false);
     }
   }, [inView]);
@@ -89,7 +89,7 @@ export const TypeAnimination = ({
   useEffect(() => {
     if (inView && !isVisible) {
       setIsVisible(true);
-    } else if(!inView && isVisible) {
+    } else if (!inView && isVisible) {
       setIsVisible(false);
     }
   }, [inView]);
@@ -99,7 +99,7 @@ export const TypeAnimination = ({
       {text.split("").map((el, i) => (
         <motion.span
           ref={ref}
-          initial={{ opacity: 0}} // Start from bottom
+          initial={{ opacity: 0 }} // Start from bottom
           animate={isVisible ? { opacity: 1, y: 0 } : "initial"}
           transition={{
             duration: 2,
@@ -176,6 +176,37 @@ export const PartialZoom = ({
     >
       {children}
     </motion.div>
+  );
+};
+
+export const PartialZoomImage = ({
+  className,
+  src,
+}: {
+  src: any;
+  className?: string;
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView && !isVisible) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [inView]);
+
+  return (
+    <motion.img
+    alt=""
+      ref={ref}
+      className={`${className}`}
+      initial={{ scale: 0 }}
+      animate={isVisible ? { scale: 1 } : "initial"}
+      transition={{ duration: 0.5 }}
+      src={src}
+    />
   );
 };
 
