@@ -3,6 +3,7 @@ import { FaClone, FaArrowCircleUp, FaCopy } from "react-icons/fa";
 import { PartialZoom } from "./OnScroll";
 import { useAnimatedValue } from "@/hooks/useAniminatedValue";
 import { useInView } from "react-intersection-observer";
+import { CurveLine } from "./CurveLine";
 
 export const SecondSection = () => {
   const { ref, inView } = useInView();
@@ -10,7 +11,9 @@ export const SecondSection = () => {
   const { ref: ref2, inView: inView2 } = useInView();
   const value2 = useAnimatedValue(0, 43, 2000, inView2);
   const { ref: ref3, inView: inView3 } = useInView();
-  const value3 = useAnimatedValue(0, 56, 2000, inView3);
+  const value3 = useAnimatedValue(0, 58, 2000, inView3);
+  const { ref: ref4, inView: inView4 } = useInView();
+  const value4 = useAnimatedValue(0, 56, 2000, inView3);
   return (
     <div className=" bg-gray-200 rounded-[50px] py-[60px] px-[50px] mx-0 flex flex-col gap-6">
       <div className="grid grid-cols-[1.5fr_1fr] items-center">
@@ -62,7 +65,7 @@ export const SecondSection = () => {
           </div>
           <div
             ref={ref}
-            className="border-gray-300 rounded-l-[20px] border-[1px] p-3 grid grid-row-2"
+            className="border-gray-300 rounded-tl-[20px] border-t-[1px] border-l-[1px] p-3 grid grid-row-2"
           >
             <div className="grid grid-cols-2">
               <div className="flex flex-col gap-6">
@@ -93,7 +96,17 @@ export const SecondSection = () => {
                 </div>
               </div>
             </div>
-            <div>d</div>
+            <div className="flex flex-col border-[1px] p-2 rounded-xl mt-4">
+              <span className="text-[12px]">View Statistics</span>
+              <div className="-mt-6 -ml-5 flex justify-between items-end">
+                {" "}
+                <CurveLine />
+                <div ref={ref4} className="bg-[#fe4a23] p-2 flex flex-col text-white rounded-xl">
+                  <span className="text-[8px]">Rate</span>
+                  <span className="text-[12px]"><span>+</span> {value4?.toFixed()}%</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="h-[310px] grid grid-rows-2 gap-5 bg-[#0d0d0d] rounded-[30px] w-full py-[40px] px-[60px]">

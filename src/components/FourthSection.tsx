@@ -15,24 +15,40 @@ export const FourthSection = () => {
             </span>
           </div>
           <div className="flex flex-col gap-5 w-[300px]">
-            <div className="flex justify-between p-4 bg-white shadow-xl rounded-3xl items-center">
-              <span className="font-semibold">Instant Insights</span>
-              <div className="bg-[#f9f9f9] h-[45px] w-[45px] rounded-full flex justify-center items-center">
-                <PlusOutlined />
-              </div>
-            </div>
-            <div className="flex justify-between p-4 bg-white shadow-xl rounded-3xl items-center">
-              <span className="font-semibold">AI technology</span>
-              <div className="bg-[#f9f9f9] h-[45px] w-[45px] rounded-full flex justify-center items-center">
-                <PlusOutlined />
-              </div>
-            </div>
-            <div className="flex justify-between p-4 bg-white shadow-xl rounded-3xl items-center">
-              <span className="font-semibold">Esay integration</span>
-              <div className="bg-[#f9f9f9] h-[45px] w-[45px] rounded-full flex justify-center items-center">
-                <PlusOutlined />
-              </div>
-            </div>
+            <PartialZoom
+              className="flex justify-between p-4 bg-white shadow-xl rounded-3xl items-center"
+              children={
+                <>
+                  {" "}
+                  <span className="font-semibold">Instant Insights</span>
+                  <div className="bg-[#f9f9f9] h-[45px] w-[45px] rounded-full flex justify-center items-center">
+                    <PlusOutlined />
+                  </div>
+                </>
+              }
+            />
+            <PartialZoom
+              className="flex justify-between p-4 bg-white shadow-xl rounded-3xl items-center"
+              children={
+                <>
+                  <span className="font-semibold">AI technology</span>
+                  <div className="bg-[#f9f9f9] h-[45px] w-[45px] rounded-full flex justify-center items-center">
+                    <PlusOutlined />
+                  </div>
+                </>
+              }
+            />
+            <PartialZoom
+              className="flex justify-between p-4 bg-white shadow-xl rounded-3xl items-center"
+              children={
+                <>
+                  <span className="font-semibold">Esay integration</span>
+                  <div className="bg-[#f9f9f9] h-[45px] w-[45px] rounded-full flex justify-center items-center">
+                    <PlusOutlined />
+                  </div>
+                </>
+              }
+            />
           </div>
         </div>
         <div className="flex">
