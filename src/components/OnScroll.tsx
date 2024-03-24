@@ -103,7 +103,7 @@ export const TypeAnimination = ({
           animate={isVisible ? { opacity: 1, y: 0 } : "initial"}
           transition={{
             duration: 2,
-            delay: i / 5,
+            delay: i / 3,
             type: "spring",
             stiffness: 100,
             damping: 30,

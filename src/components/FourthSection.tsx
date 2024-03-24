@@ -1,7 +1,7 @@
 import { PlusOutlined } from "@ant-design/icons";
 import mobile from "@/assets/mobile.png";
 import desktop from "@/assets/desktop.png";
-import { TypeAnimination } from "./OnScroll";
+import { PartialZoom, TypeAnimination } from "./OnScroll";
 
 export const FourthSection = () => {
   return (
@@ -36,11 +36,18 @@ export const FourthSection = () => {
           </div>
         </div>
         <div className="flex">
-          <img
-            src={mobile}
-            alt=""
-            className="z-50 w-[350px] h-[600px] mt-[200px] -ml-[65px]"
-          />
+          <div className="z-50">
+            <PartialZoom
+              children={
+                <img
+                  src={mobile}
+                  alt=""
+                  className="z-50 w-[350px] h-[600px] mt-[200px] -ml-[65px]"
+                />
+              }
+            />
+          </div>
+
           <img
             src={desktop}
             alt=""
@@ -50,7 +57,10 @@ export const FourthSection = () => {
       </div>
       <div className="-mt-[350px] -mb-[100px]">
         {" "}
-        <TypeAnimination text="Ramos" className="text-[24rem] font-bold text-[#fe4a23]"/>
+        <TypeAnimination
+          text="Ramos"
+          className="text-[24rem] font-bold text-[#fe4a23]"
+        />
       </div>
     </div>
   );
