@@ -13,7 +13,7 @@ export const SecondSection = () => {
   const { ref: ref3, inView: inView3 } = useInView();
   const value3 = useAnimatedValue(0, 58, 2000, inView3);
   const { ref: ref4, inView: inView4 } = useInView();
-  const value4 = useAnimatedValue(0, 56, 2000, inView3);
+  const value4 = useAnimatedValue(0, 56, 2000, inView4);
   return (
     <div className=" bg-gray-200 rounded-[50px] py-[60px] px-[50px] mx-0 flex flex-col gap-6">
       <div className="grid grid-cols-[1.5fr_1fr] items-center">
