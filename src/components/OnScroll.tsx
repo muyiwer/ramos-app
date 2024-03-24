@@ -76,7 +76,47 @@ export const Wavy = ({
     </span>
   );
 };
+export const TypeAnimination = ({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { ref, inView } = useInView();
 
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [inView]);
+
+  return (
+    <span>
+      {text.split("").map((el, i) => (
+        <motion.span
+          ref={ref}
+          initial={{ opacity: 0}} // Start from bottom
+          animate={isVisible ? { opacity: 1, y: 0 } : "initial"}
+          transition={{
+            duration: 2,
+            delay: i / 5,
+            type: "spring",
+            stiffness: 100,
+            damping: 30,
+          }}
+          key={i}
+          className={`${className} inline-block`}
+        >
+          <span className="tracking-tighter">{el}</span>
+        </motion.span>
+      ))}
+    </span>
+  );
+};
 export const Zoom = ({
   className,
   children,

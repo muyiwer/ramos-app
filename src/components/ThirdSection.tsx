@@ -1,9 +1,20 @@
 import { RiseOutlined } from "@ant-design/icons";
 import { Button, Divider } from "antd";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import { PartialZoom, Wavy } from "./OnScroll";
 
 export const ThirdSection = () => {
+  const { ref, inView } = useInView();
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [inView]);
   return (
     <div className="grid grid-cols-1 px-[90px] py-[40px] gap-5">
       <span className="text-[7.8rem] font-bold leading-[130px]">
@@ -39,8 +50,9 @@ export const ThirdSection = () => {
           children={
             <div className=" bg-yellow-400 rounded-[30%] h-[130px] w-[300px]">
               <motion.div
+              ref={ref}
+               animate={isVisible ? { x: 0, opacity: 1 } : "initial"}
                 initial={{ x: "-100%", opacity: 0 }} // Initial position and opacity
-                animate={{ x: 0, opacity: 1 }} // Target position and opacity
                 transition={{ duration: 2, ease: "easeInOut" }} // Animation duration and easing
                 className="whitespace-nowrap break-words"
               >
