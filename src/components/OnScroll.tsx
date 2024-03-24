@@ -46,7 +46,7 @@ export const Wavy = ({
   const { ref, inView } = useInView();
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !isVisible) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -87,7 +87,7 @@ export const TypeAnimination = ({
   const { ref, inView } = useInView();
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !isVisible) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -128,7 +128,7 @@ export const Zoom = ({
   const { ref, inView } = useInView();
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !isVisible) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -159,7 +159,7 @@ export const PartialZoom = ({
   const { ref, inView } = useInView();
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !isVisible) {
       setIsVisible(true);
     } else {
       setIsVisible(false);

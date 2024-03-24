@@ -9,7 +9,7 @@ export const useAnimatedValue = (
   const [isVisible, setIsVisible] = useState(false);
   const [value, setValue] = useState<number>(initialValue);
   useEffect(() => {
-    if (inView) {
+    if (inView && !isVisible) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
