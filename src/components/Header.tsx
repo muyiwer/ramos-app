@@ -5,7 +5,7 @@ import logo from "@/assets/black_logo.png";
 
 export const Header = () => {
   return (
-    <header className="h-[60px] overflow-hidden w-screen">
+    <header className="h-[60px] overflow-hidden">
       <div className="flex justify-between mx-2 my-1 p-1 rounded-xl bg-[#0d0d0d] text-white items-center">
         <motion.div
           initial={{ y: "150%", opacity: 0 }}
